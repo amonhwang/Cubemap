@@ -91,7 +91,7 @@ void SetupRC() {
     gltMakeSphere(sphereBatch, 1.0f, 52, 26);
     gltMakeCube(cubeBatch, 20.0f);
 
-    reflectionShader = gltLoadShaderPairWithAttributes("Reflection.vp", "Reflection.fp", 2,
+    reflectionShader = gltLoadShaderPairWithAttributes("/Users/amon/workspace/opengl/SB5/Src/Chapter07/CubeMapped/Reflection.vp", "/Users/amon/workspace/opengl/SB5/Src/Chapter07/CubeMapped/Reflection.fp", 2,
                                                        GLT_ATTRIBUTE_VERTEX, "vVertex",
                                                        GLT_ATTRIBUTE_NORMAL, "vNormal");
 
@@ -100,7 +100,7 @@ void SetupRC() {
     locNormalReflect = glGetUniformLocation(reflectionShader, "normalMatrix");
     locInvertedCamera = glGetUniformLocation(reflectionShader, "mInverseCamera");
     
-    skyBoxShader = gltLoadShaderPairWithAttributes("SkyBox.vp", "SkyBox.fp", 2,
+    skyBoxShader = gltLoadShaderPairWithAttributes("/Users/amon/workspace/opengl/SB5/Src/Chapter07/CubeMapped/SkyBox.vp", "/Users/amon/workspace/opengl/SB5/Src/Chapter07/CubeMapped/SkyBox.fp", 2,
                                                    GLT_ATTRIBUTE_VERTEX, "vVertex",
                                                    GLT_ATTRIBUTE_NORMAL, "vNormal");
     locMVPSkyBox = glGetUniformLocation(skyBoxShader, "mvpMatrix");
@@ -111,7 +111,7 @@ void ShutdownRC(void) {
 }
 
 // Called to draw scene
-void RenderScene(void) {
+void RenderScene(GLFWwindow* window) {
     // Clear the window
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -145,7 +145,7 @@ void RenderScene(void) {
     modelViewMatrix.PopMatrix();
 
     // Do the buffer Swap
-//    glutSwapBuffers();
+    glfwSwapBuffers(window);
 }
 
 
@@ -169,18 +169,17 @@ int main(int argc, char * argv[]) {
     glfwMakeContextCurrent(window);
     //对窗口注册一个回调函数,每当窗口改变大小，GLFW会调用这个函数并填充相应的参数供你处理
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
+    framebuffer_size_callback(window, SCR_WIDTH, SCR_HEIGHT);
     glewInit();
     SetupRC();
+    RenderScene(window);
+    glfwSetWindowRefreshCallback(window, RenderScene);
     //渲染循环
     while(!glfwWindowShouldClose(window)) {
-        // 输入
+        glfwPollEvents();
         processInput(window);
-        
-        // 检查并调用事件，交换缓冲
-        glfwSwapBuffers(window);//检查触发事件
-        glfwPollEvents();    //交换颜色缓冲
     }
+
     ShutdownRC();
     //释放/删除之前的分配的所有资源
     glfwTerminate();
@@ -189,12 +188,29 @@ int main(int argc, char * argv[]) {
 
 //输入控制，检查用户是否按下了返回键(Esc)
 void processInput(GLFWwindow *window) {
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+    
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+        viewFrame.MoveForward(0.1f);
+
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+        viewFrame.MoveForward(-0.1f);
+
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+        viewFrame.RotateLocalY(0.1);
+
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+        viewFrame.RotateLocalY(-0.1);
 }
 
 // 当用户改变窗口的大小的时候，视口也应该被调整
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     // 注意：对于视网膜(Retina)显示屏，width和height都会明显比原输入值更高一点。
     glViewport(0, 0, width, height);
+    
+    viewFrustum.SetPerspective(35.0f, float(width)/float(height), 1.0f, 1000.0f);
+    
+    projectionMatrix.LoadMatrix(viewFrustum.GetProjectionMatrix());
+    transformPipeline.SetMatrixStacks(modelViewMatrix, projectionMatrix);
 }

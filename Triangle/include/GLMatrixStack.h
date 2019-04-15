@@ -163,7 +163,9 @@ class GLMatrixStack
             }
             
 		// Two different ways to get the matrix
-		const M3DMatrix44f& GetMatrix(void) { return pStack[stackPointer]; }
+		const M3DMatrix44f& GetMatrix(void) {
+            return pStack[stackPointer];
+        }
 		void GetMatrix(M3DMatrix44f mMatrix) { m3dCopyMatrix44(mMatrix, pStack[stackPointer]); }
 
 
