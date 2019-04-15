@@ -7,12 +7,12 @@
 #include <cstdlib>
 #include <iostream>
 
-#include <GLTools.h>    // OpenGL toolkit
-#include <GLMatrixStack.h>
-#include <GLFrame.h>
-#include <GLFrustum.h>
-#include <GLGeometryTransform.h>
-#include <StopWatch.h>
+#include "GLTools.h"    // OpenGL toolkit
+#include "GLMatrixStack.h"
+#include "GLFrame.h"
+#include "GLFrustum.h"
+#include "GLGeometryTransform.h"
+#include "StopWatch.h"
 
 #include <math.h>
 #include <stdlib.h>
@@ -169,7 +169,6 @@ int main(int argc, char * argv[]) {
     glfwMakeContextCurrent(window);
     //对窗口注册一个回调函数,每当窗口改变大小，GLFW会调用这个函数并填充相应的参数供你处理
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    //初始化GLAD用来管理OpenGL的函数指针
 
     glewInit();
     SetupRC();

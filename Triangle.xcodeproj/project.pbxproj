@@ -15,8 +15,12 @@
 		3F300D1E2264380B00A97B92 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F300D1D2264380B00A97B92 /* Cocoa.framework */; };
 		3F300D20226439AA00A97B92 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F300D1F226439AA00A97B92 /* OpenGL.framework */; };
 		3F300D2122643CB800A97B92 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F300D13226436DE00A97B92 /* libglfw3.a */; };
-		3F300D422264526F00A97B92 /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F300D3F22644BA200A97B92 /* libGLTools.a */; };
 		3F300D4322645E7400A97B92 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F300D3C226447BA00A97B92 /* libGLEW.a */; };
+		3F300D5B2264654900A97B92 /* GLTriangleBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F300D552264654800A97B92 /* GLTriangleBatch.cpp */; };
+		3F300D5C2264654900A97B92 /* math3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F300D562264654800A97B92 /* math3d.cpp */; };
+		3F300D5D2264654900A97B92 /* GLShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F300D572264654800A97B92 /* GLShaderManager.cpp */; };
+		3F300D5E2264654900A97B92 /* GLTools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F300D582264654800A97B92 /* GLTools.cpp */; };
+		3F300D5F2264654900A97B92 /* GLBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F300D592264654800A97B92 /* GLBatch.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +48,24 @@
 		3F300D2222643FD100A97B92 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		3F300D3C226447BA00A97B92 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../../usr/local/lib/libGLEW.a; sourceTree = "<group>"; };
 		3F300D3F22644BA200A97B92 /* libGLTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLTools.a; path = ../OpenGlShare/libGLTools.a; sourceTree = "<group>"; };
+		3F300D462264653600A97B92 /* GLTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLTools.h; sourceTree = "<group>"; };
+		3F300D472264653600A97B92 /* math3d.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = math3d.h; sourceTree = "<group>"; };
+		3F300D482264653600A97B92 /* GLBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLBatch.h; sourceTree = "<group>"; };
+		3F300D492264653600A97B92 /* GLMatrixStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLMatrixStack.h; sourceTree = "<group>"; };
+		3F300D4A2264653700A97B92 /* GLTriangleBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLTriangleBatch.h; sourceTree = "<group>"; };
+		3F300D4B2264653700A97B92 /* GLFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLFrame.h; sourceTree = "<group>"; };
+		3F300D4C2264653700A97B92 /* GLBatchBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLBatchBase.h; sourceTree = "<group>"; };
+		3F300D4D2264653700A97B92 /* GLGeometryTransform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLGeometryTransform.h; sourceTree = "<group>"; };
+		3F300D4E2264653700A97B92 /* GLFrustum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLFrustum.h; sourceTree = "<group>"; };
+		3F300D4F2264653700A97B92 /* GLShaderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLShaderManager.h; sourceTree = "<group>"; };
+		3F300D502264653700A97B92 /* StopWatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StopWatch.h; sourceTree = "<group>"; };
+		3F300D522264653700A97B92 /* glxew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glxew.h; sourceTree = "<group>"; };
+		3F300D532264653700A97B92 /* wglew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wglew.h; sourceTree = "<group>"; };
+		3F300D552264654800A97B92 /* GLTriangleBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTriangleBatch.cpp; sourceTree = "<group>"; };
+		3F300D562264654800A97B92 /* math3d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = math3d.cpp; sourceTree = "<group>"; };
+		3F300D572264654800A97B92 /* GLShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLShaderManager.cpp; sourceTree = "<group>"; };
+		3F300D582264654800A97B92 /* GLTools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTools.cpp; sourceTree = "<group>"; };
+		3F300D592264654800A97B92 /* GLBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLBatch.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F300D422264526F00A97B92 /* libGLTools.a in Frameworks */,
 				3F300D4322645E7400A97B92 /* libGLEW.a in Frameworks */,
 				3F300D2122643CB800A97B92 /* libglfw3.a in Frameworks */,
 				3F300D20226439AA00A97B92 /* OpenGL.framework in Frameworks */,
@@ -86,7 +107,8 @@
 		3F300D0A226434B300A97B92 /* Triangle */ = {
 			isa = PBXGroup;
 			children = (
-				3F300D0B226434B300A97B92 /* main.cpp */,
+				3F300D45226464FC00A97B92 /* src */,
+				3F300D44226464F000A97B92 /* include */,
 			);
 			path = Triangle;
 			sourceTree = "<group>";
@@ -106,6 +128,47 @@
 				3F300D13226436DE00A97B92 /* libglfw3.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F300D44226464F000A97B92 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				3F300D512264653700A97B92 /* GL */,
+				3F300D482264653600A97B92 /* GLBatch.h */,
+				3F300D4C2264653700A97B92 /* GLBatchBase.h */,
+				3F300D4B2264653700A97B92 /* GLFrame.h */,
+				3F300D4E2264653700A97B92 /* GLFrustum.h */,
+				3F300D4D2264653700A97B92 /* GLGeometryTransform.h */,
+				3F300D492264653600A97B92 /* GLMatrixStack.h */,
+				3F300D4F2264653700A97B92 /* GLShaderManager.h */,
+				3F300D462264653600A97B92 /* GLTools.h */,
+				3F300D4A2264653700A97B92 /* GLTriangleBatch.h */,
+				3F300D472264653600A97B92 /* math3d.h */,
+				3F300D502264653700A97B92 /* StopWatch.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		3F300D45226464FC00A97B92 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				3F300D592264654800A97B92 /* GLBatch.cpp */,
+				3F300D572264654800A97B92 /* GLShaderManager.cpp */,
+				3F300D582264654800A97B92 /* GLTools.cpp */,
+				3F300D552264654800A97B92 /* GLTriangleBatch.cpp */,
+				3F300D562264654800A97B92 /* math3d.cpp */,
+				3F300D0B226434B300A97B92 /* main.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		3F300D512264653700A97B92 /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				3F300D522264653700A97B92 /* glxew.h */,
+				3F300D532264653700A97B92 /* wglew.h */,
+			);
+			path = GL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +228,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F300D0C226434B300A97B92 /* main.cpp in Sources */,
+				3F300D5D2264654900A97B92 /* GLShaderManager.cpp in Sources */,
+				3F300D5C2264654900A97B92 /* math3d.cpp in Sources */,
+				3F300D5F2264654900A97B92 /* GLBatch.cpp in Sources */,
+				3F300D5B2264654900A97B92 /* GLTriangleBatch.cpp in Sources */,
+				3F300D5E2264654900A97B92 /* GLTools.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,14 +355,8 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JWVH8DGJ48;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					/Users/amon/workspace/opengl/OpenGlShare/include,
-				);
-				LIBRARY_SEARCH_PATHS = (
-					/usr/local/lib,
-					/Users/amon/workspace/opengl/OpenGlShare/,
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -304,14 +366,8 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JWVH8DGJ48;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					/Users/amon/workspace/opengl/OpenGlShare/include,
-				);
-				LIBRARY_SEARCH_PATHS = (
-					/usr/local/lib,
-					/Users/amon/workspace/opengl/OpenGlShare/,
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
