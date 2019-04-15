@@ -16,6 +16,7 @@
 		3F300D20226439AA00A97B92 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F300D1F226439AA00A97B92 /* OpenGL.framework */; };
 		3F300D2122643CB800A97B92 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F300D13226436DE00A97B92 /* libglfw3.a */; };
 		3F300D412264521A00A97B92 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F300D3C226447BA00A97B92 /* libGLEW.a */; };
+		3F300D422264526F00A97B92 /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F300D3F22644BA200A97B92 /* libGLTools.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F300D422264526F00A97B92 /* libGLTools.a in Frameworks */,
 				3F300D412264521A00A97B92 /* libGLEW.a in Frameworks */,
 				3F300D2122643CB800A97B92 /* libglfw3.a in Frameworks */,
 				3F300D20226439AA00A97B92 /* OpenGL.framework in Frameworks */,
@@ -285,8 +287,14 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JWVH8DGJ48;
-				HEADER_SEARCH_PATHS = /usr/local/include;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/Users/amon/workspace/opengl/OpenGlShare/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/Users/amon/workspace/opengl/OpenGlShare/,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -296,8 +304,14 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JWVH8DGJ48;
-				HEADER_SEARCH_PATHS = /usr/local/include;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/Users/amon/workspace/opengl/OpenGlShare/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/Users/amon/workspace/opengl/OpenGlShare/,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
