@@ -157,8 +157,8 @@ int main(int argc, char * argv[]) {
     
     //初始化GLFW
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
@@ -178,22 +178,18 @@ int main(int argc, char * argv[]) {
     //初始化GLAD用来管理OpenGL的函数指针
    
     glewInit();
-    
+    SetupRC();
     //渲染循环
     while(!glfwWindowShouldClose(window))
     {
         // 输入
         processInput(window);
         
-        // 渲染指令
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        
         // 检查并调用事件，交换缓冲
         glfwSwapBuffers(window);//检查触发事件
         glfwPollEvents();    //交换颜色缓冲
     }
-    
+    ShutdownRC();
     //释放/删除之前的分配的所有资源
     glfwTerminate();
     return EXIT_SUCCESS;
