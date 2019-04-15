@@ -72,14 +72,14 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF S
 
 //////////////////////// TEMPORARY TEMPORARY TEMPORARY - On SnowLeopard this is suppored, but GLEW doens't hook up properly
 //////////////////////// Fixed probably in 10.6.3
-#ifdef __APPLE__
-#define glGenVertexArrays glGenVertexArraysAPPLE
-#define glDeleteVertexArrays  glDeleteVertexArraysAPPLE
-#define glBindVertexArray	glBindVertexArrayAPPLE
-#ifndef OPENGL_ES
-#define glGenerateMipmap    glGenerateMipmapEXT
-#endif
-#endif
+//#ifdef __APPLE__
+//#define glGenVertexArrays glGenVertexArraysAPPLE
+//#define glDeleteVertexArrays  glDeleteVertexArraysAPPLE
+//#define glBindVertexArray    glBindVertexArrayAPPLE
+//#ifndef OPENGL_ES
+//#define glGenerateMipmap    glGenerateMipmapEXT
+//#endif
+//#endif
 
 
 // Universal includes
