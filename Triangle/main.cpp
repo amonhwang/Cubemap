@@ -56,21 +56,20 @@ GLenum  cube[6] = {  GL_TEXTURE_CUBE_MAP_POSITIVE_X,
 //////////////////////////////////////////////////////////////////
 // This function does any needed initialization on the rendering
 // context.
-void SetupRC()
-{
+void SetupRC() {
     GLbyte *pBytes;
     GLint iWidth, iHeight, iComponents;
     GLenum eFormat;
     int i;
-    
+
     // Cull backs of polygons
     glCullFace(GL_BACK);
     glFrontFace(GL_CCW);
     glEnable(GL_DEPTH_TEST);
-    
+
     glGenTextures(1, &cubeTexture);
     glBindTexture(GL_TEXTURE_CUBE_MAP, cubeTexture);
-    
+
     // Set up texture maps
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -78,60 +77,52 @@ void SetupRC()
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-    
-    
+
     // Load Cube Map images
-    for(i = 0; i < 6; i++)
-    {
+    for(i = 0; i < 6; i++) {
         // Load this texture map
         pBytes = gltReadTGABits(szCubeFaces[i], &iWidth, &iHeight, &iComponents, &eFormat);
         glTexImage2D(cube[i], 0, iComponents, iWidth, iHeight, 0, eFormat, GL_UNSIGNED_BYTE, pBytes);
         free(pBytes);
     }
     glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
-    
+
     viewFrame.MoveForward(-4.0f);
     gltMakeSphere(sphereBatch, 1.0f, 52, 26);
     gltMakeCube(cubeBatch, 20.0f);
-    
+
     reflectionShader = gltLoadShaderPairWithAttributes("Reflection.vp", "Reflection.fp", 2,
                                                        GLT_ATTRIBUTE_VERTEX, "vVertex",
                                                        GLT_ATTRIBUTE_NORMAL, "vNormal");
-    
+
     locMVPReflect = glGetUniformLocation(reflectionShader, "mvpMatrix");
     locMVReflect = glGetUniformLocation(reflectionShader, "mvMatrix");
     locNormalReflect = glGetUniformLocation(reflectionShader, "normalMatrix");
     locInvertedCamera = glGetUniformLocation(reflectionShader, "mInverseCamera");
     
-    
     skyBoxShader = gltLoadShaderPairWithAttributes("SkyBox.vp", "SkyBox.fp", 2,
                                                    GLT_ATTRIBUTE_VERTEX, "vVertex",
                                                    GLT_ATTRIBUTE_NORMAL, "vNormal");
-    
     locMVPSkyBox = glGetUniformLocation(skyBoxShader, "mvpMatrix");
-    
-    
 }
 
-void ShutdownRC(void)
-{
+void ShutdownRC(void) {
     glDeleteTextures(1, &cubeTexture);
 }
 
 // Called to draw scene
-void RenderScene(void)
-{
+void RenderScene(void) {
     // Clear the window
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
+
     M3DMatrix44f mCamera;
     M3DMatrix44f mCameraRotOnly;
     M3DMatrix44f mInverseCamera;
-    
+
     viewFrame.GetCameraMatrix(mCamera, false);
     viewFrame.GetCameraMatrix(mCameraRotOnly, true);
     m3dInvertMatrix44(mInverseCamera, mCameraRotOnly);
-    
+
     modelViewMatrix.PushMatrix();
     // Draw the sphere
     modelViewMatrix.MultMatrix(mCamera);
@@ -140,26 +131,25 @@ void RenderScene(void)
     glUniformMatrix4fv(locMVReflect, 1, GL_FALSE, transformPipeline.GetModelViewMatrix());
     glUniformMatrix3fv(locNormalReflect, 1, GL_FALSE, transformPipeline.GetNormalMatrix());
     glUniformMatrix4fv(locInvertedCamera, 1, GL_FALSE, mInverseCamera);
-    
+
     glEnable(GL_CULL_FACE);
     sphereBatch.Draw();
     glDisable(GL_CULL_FACE);
     modelViewMatrix.PopMatrix();
-    
+
     modelViewMatrix.PushMatrix();
     modelViewMatrix.MultMatrix(mCameraRotOnly);
     glUseProgram(skyBoxShader);
     glUniformMatrix4fv(locMVPSkyBox, 1, GL_FALSE, transformPipeline.GetModelViewProjectionMatrix());
     cubeBatch.Draw();
     modelViewMatrix.PopMatrix();
-    
+
     // Do the buffer Swap
 //    glutSwapBuffers();
 }
 
 
 int main(int argc, char * argv[]) {
-    
     //初始化GLFW
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -170,8 +160,7 @@ int main(int argc, char * argv[]) {
 #endif
     //创建一个窗口对象
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "FirstGL", NULL, NULL);
-    if (window == NULL)
-    {
+    if (window == NULL) {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
@@ -181,12 +170,11 @@ int main(int argc, char * argv[]) {
     //对窗口注册一个回调函数,每当窗口改变大小，GLFW会调用这个函数并填充相应的参数供你处理
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     //初始化GLAD用来管理OpenGL的函数指针
-   
+
     glewInit();
     SetupRC();
     //渲染循环
-    while(!glfwWindowShouldClose(window))
-    {
+    while(!glfwWindowShouldClose(window)) {
         // 输入
         processInput(window);
         
@@ -201,15 +189,13 @@ int main(int argc, char * argv[]) {
 }
 
 //输入控制，检查用户是否按下了返回键(Esc)
-void processInput(GLFWwindow *window)
-{
+void processInput(GLFWwindow *window) {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 }
 
 // 当用户改变窗口的大小的时候，视口也应该被调整
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-{
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     // 注意：对于视网膜(Retina)显示屏，width和height都会明显比原输入值更高一点。
     glViewport(0, 0, width, height);
 }
