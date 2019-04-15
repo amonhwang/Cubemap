@@ -36,7 +36,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3F300D08226434B300A97B92 /* Triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Triangle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F300D08226434B300A97B92 /* CubeMap */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CubeMap; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F300D0B226434B300A97B92 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3F300D13226436DE00A97B92 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
 		3F300D152264374100A97B92 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -90,7 +90,7 @@
 		3F300CFF226434B300A97B92 = {
 			isa = PBXGroup;
 			children = (
-				3F300D0A226434B300A97B92 /* Triangle */,
+				3F300D0A226434B300A97B92 /* CubeMap */,
 				3F300D09226434B300A97B92 /* Products */,
 				3F300D12226436DD00A97B92 /* Frameworks */,
 			);
@@ -99,18 +99,18 @@
 		3F300D09226434B300A97B92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3F300D08226434B300A97B92 /* Triangle */,
+				3F300D08226434B300A97B92 /* CubeMap */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3F300D0A226434B300A97B92 /* Triangle */ = {
+		3F300D0A226434B300A97B92 /* CubeMap */ = {
 			isa = PBXGroup;
 			children = (
 				3F300D45226464FC00A97B92 /* src */,
 				3F300D44226464F000A97B92 /* include */,
 			);
-			path = Triangle;
+			path = CubeMap;
 			sourceTree = "<group>";
 		};
 		3F300D12226436DD00A97B92 /* Frameworks */ = {
@@ -174,9 +174,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3F300D07226434B300A97B92 /* Triangle */ = {
+		3F300D07226434B300A97B92 /* CubeMap */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3F300D0F226434B300A97B92 /* Build configuration list for PBXNativeTarget "Triangle" */;
+			buildConfigurationList = 3F300D0F226434B300A97B92 /* Build configuration list for PBXNativeTarget "CubeMap" */;
 			buildPhases = (
 				3F300D04226434B300A97B92 /* Sources */,
 				3F300D05226434B300A97B92 /* Frameworks */,
@@ -186,9 +186,9 @@
 			);
 			dependencies = (
 			);
-			name = Triangle;
+			name = CubeMap;
 			productName = Triangle;
-			productReference = 3F300D08226434B300A97B92 /* Triangle */;
+			productReference = 3F300D08226434B300A97B92 /* CubeMap */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +205,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3F300D03226434B300A97B92 /* Build configuration list for PBXProject "Triangle" */;
+			buildConfigurationList = 3F300D03226434B300A97B92 /* Build configuration list for PBXProject "CubeMap" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,7 +217,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3F300D07226434B300A97B92 /* Triangle */,
+				3F300D07226434B300A97B92 /* CubeMap */,
 			);
 		};
 /* End PBXProject section */
@@ -375,7 +375,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3F300D03226434B300A97B92 /* Build configuration list for PBXProject "Triangle" */ = {
+		3F300D03226434B300A97B92 /* Build configuration list for PBXProject "CubeMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F300D0D226434B300A97B92 /* Debug */,
@@ -384,7 +384,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3F300D0F226434B300A97B92 /* Build configuration list for PBXNativeTarget "Triangle" */ = {
+		3F300D0F226434B300A97B92 /* Build configuration list for PBXNativeTarget "CubeMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F300D10226434B300A97B92 /* Debug */,

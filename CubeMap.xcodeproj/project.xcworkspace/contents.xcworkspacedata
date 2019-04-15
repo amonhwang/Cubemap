@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Triangle.xcodeproj">
+      location = "self:/Users/amon/workspace/opengl/Triangle/CubeMap.xcodeproj">
    </FileRef>
 </Workspace>
