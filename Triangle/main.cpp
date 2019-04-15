@@ -39,7 +39,12 @@ GLint               locMVPReflect, locMVReflect, locNormalReflect, locInvertedCa
 GLint                locMVPSkyBox;
 
 // Six sides of a cube map
-const char *szCubeFaces[6] = { "pos_x.tga", "neg_x.tga", "pos_y.tga", "neg_y.tga", "pos_z.tga", "neg_z.tga" };
+const char *szCubeFaces[6] = { "/Users/amon/workspace/opengl/SB5/Src/Chapter07/CubeMapped/pos_x.tga",
+    "/Users/amon/workspace/opengl/SB5/Src/Chapter07/CubeMapped/neg_x.tga",
+    "/Users/amon/workspace/opengl/SB5/Src/Chapter07/CubeMapped/pos_y.tga",
+    "/Users/amon/workspace/opengl/SB5/Src/Chapter07/CubeMapped/neg_y.tga",
+    "/Users/amon/workspace/opengl/SB5/Src/Chapter07/CubeMapped/pos_z.tga",
+    "/Users/amon/workspace/opengl/SB5/Src/Chapter07/CubeMapped/neg_z.tga" };
 
 GLenum  cube[6] = {  GL_TEXTURE_CUBE_MAP_POSITIVE_X,
     GL_TEXTURE_CUBE_MAP_NEGATIVE_X,
